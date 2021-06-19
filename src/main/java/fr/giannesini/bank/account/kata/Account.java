@@ -13,4 +13,8 @@ public record Account(double amount) {
     public Account withDraw(double withdraw) {
         return new Account(amount - withdraw);
     }
+
+    public String historic(HistoricGenerator historicGenerator) {
+        return null;
+    }
 }

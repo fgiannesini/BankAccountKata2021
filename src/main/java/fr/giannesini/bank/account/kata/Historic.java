@@ -7,11 +7,12 @@ import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
 
-public class Historic {
+public class Historic implements HistoricGenerator {
 
     public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
     public static final DecimalFormat DECIMAL_FORMATTER = new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.ENGLISH));
 
+    @Override
     public String generate(List<AccountStatement> statements) {
         String historicLines = statements.stream()
                 .map(this::historicLine)
