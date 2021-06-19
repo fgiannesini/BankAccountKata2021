@@ -26,6 +26,6 @@ public record Account(List<AccountStatement> statements) {
     }
 
     public String historic(HistoricGenerator historicGenerator) {
-        return null;
+        return historicGenerator.generate(statements);
     }
 }

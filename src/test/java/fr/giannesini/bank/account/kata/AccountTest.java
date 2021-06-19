@@ -1,6 +1,5 @@
 package fr.giannesini.bank.account.kata;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
@@ -47,19 +46,18 @@ public class AccountTest {
         return new AccountStatement(date(day), amount);
     }
 
-    @Disabled("Disabled during double loop implementation")
     @Test
-    void should_get_historic() {
+    void should_generate_historic() {
         var historic = new Account()
-                .deposit(20, date(1))
-                .withDraw(10, date(1))
+                .deposit(20, date(14))
+                .withDraw(10, date(30))
                 .historic(statements -> {
                     assertThat(statements).containsExactly(
-                            statement(30, 20),
-                            statement(14, -10)
+                            statement(14, 20),
+                            statement(30, -10)
                     );
-                    return "result";
+                    return "Historic called";
                 });
-        assertThat(historic).isEqualTo("result");
+        assertThat(historic).isEqualTo("Historic called");
     }
 }
