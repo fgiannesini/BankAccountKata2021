@@ -1,7 +1,8 @@
 package fr.giannesini.bank.account.kata;
 
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
+import javax.money.format.AmountFormatQueryBuilder;
+import javax.money.format.MonetaryAmountFormat;
+import javax.money.format.MonetaryFormats;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Locale;
@@ -9,8 +10,8 @@ import java.util.stream.Collectors;
 
 public class Historic implements HistoricGenerator {
 
-    public static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    public static final DecimalFormat DECIMAL_FORMATTER = new DecimalFormat("0.00", new DecimalFormatSymbols(Locale.ENGLISH));
+    private static final DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+    private static final MonetaryAmountFormat MONEY_FORMATTER = MonetaryFormats.getAmountFormat(AmountFormatQueryBuilder.of(Locale.getDefault()).build());
 
     @Override
     public String generate(List<AccountStatement> statements) {
@@ -24,6 +25,6 @@ public class Historic implements HistoricGenerator {
     }
 
     private String historicLine(AccountStatement statement) {
-        return statement.date().format(DATE_FORMATTER) + " " + DECIMAL_FORMATTER.format(statement.amount());
+        return String.join(" ", statement.date().format(DATE_FORMATTER), MONEY_FORMATTER.format(statement.monetaryAmount()));
     }
 }
