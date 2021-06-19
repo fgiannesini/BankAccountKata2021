@@ -1,4 +1,6 @@
-package fr.giannesini.bank.account.kata;
+package fr.giannesini.bank.account.kata.account;
+
+import fr.giannesini.bank.account.kata.historic.HistoricGenerator;
 
 import javax.money.MonetaryAmount;
 import java.time.LocalDate;

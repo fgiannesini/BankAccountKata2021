@@ -1,4 +1,4 @@
-package fr.giannesini.bank.account.kata;
+package fr.giannesini.bank.account.kata.account;
 
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.Test;

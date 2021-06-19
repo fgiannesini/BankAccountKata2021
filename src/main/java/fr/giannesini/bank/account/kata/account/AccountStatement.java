@@ -1,4 +1,4 @@
-package fr.giannesini.bank.account.kata;
+package fr.giannesini.bank.account.kata.account;
 
 import javax.money.MonetaryAmount;
 import java.time.LocalDate;

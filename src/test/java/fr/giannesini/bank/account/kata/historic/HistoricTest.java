@@ -1,5 +1,6 @@
-package fr.giannesini.bank.account.kata;
+package fr.giannesini.bank.account.kata.historic;
 
+import fr.giannesini.bank.account.kata.account.AccountStatement;
 import org.javamoney.moneta.Money;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

@@ -1,4 +1,6 @@
-package fr.giannesini.bank.account.kata;
+package fr.giannesini.bank.account.kata.historic;
+
+import fr.giannesini.bank.account.kata.account.AccountStatement;
 
 import javax.money.format.AmountFormatQueryBuilder;
 import javax.money.format.MonetaryAmountFormat;
