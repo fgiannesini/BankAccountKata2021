@@ -1,5 +1,6 @@
 package fr.giannesini.bank.account.kata;
 
+import javax.money.MonetaryAmount;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Stream;
@@ -10,12 +11,12 @@ public record Account(List<AccountStatement> statements) {
         this(List.of());
     }
 
-    public Account deposit(double deposit, LocalDate date) {
+    public Account deposit(MonetaryAmount deposit, LocalDate date) {
         return new Account(appendNewStatement(new AccountStatement(date, deposit)));
     }
 
-    public Account withDraw(double withdraw, LocalDate date) {
-        return new Account(appendNewStatement(new AccountStatement(date, -withdraw)));
+    public Account withDraw(MonetaryAmount withdraw, LocalDate date) {
+        return new Account(appendNewStatement(new AccountStatement(date, withdraw.negate())));
     }
 
     private List<AccountStatement> appendNewStatement(AccountStatement accountStatement) {
